@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/activity_game"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.blkxltng.memorygame.GameActivity">
+
+    <TextView
+        android:text="Score: 999"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textScore"/>
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textWatchGo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:id="@+id/button2"
+        android:backgroundTint="@color/colorBlue"
+        android:textColor="@android:color/white"/>
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button2"
+        android:layout_alignStart="@+id/button2"
+        android:layout_marginTop="25dp"
+        android:id="@+id/button3"
+        android:backgroundTint="@color/colorGreen"/>
+
+    <Button
+        android:text="Replay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/buttonReplay"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:textSize="10sp"/>
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:id="@+id/button4"
+        android:backgroundTint="@color/colorRed"
+        android:layout_below="@+id/button3"
+        android:layout_alignStart="@+id/button3"/>
+
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:id="@+id/button5"
+        android:backgroundTint="@color/colorYellow"
+        android:layout_below="@+id/button4"
+        android:layout_alignStart="@+id/button4"/>
+
+    <TextView
+        android:text="Difficulty: 4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:id="@+id/textDifficulty"
+        android:layout_below="@+id/textScore"
+        android:layout_alignStart="@+id/textScore"/>
+
+    <TextView
+        android:text="Watch/Go"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:id="@+id/textWatchGo"
+        android:layout_below="@+id/textDifficulty"
+        android:layout_alignStart="@+id/textDifficulty"/>
+</RelativeLayout>
