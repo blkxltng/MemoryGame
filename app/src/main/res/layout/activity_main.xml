@@ -19,7 +19,32 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/textView"
-        android:textSize="20sp"/>
+        android:typeface="sans"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title"
+        android:textSize="40sp"
+        android:textStyle="normal|bold"
+        android:textAllCaps="false"/>
+
+    <TextView
+        android:text="High Score: 999"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textHighScore"
+        android:textSize="20sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="229dp"
+        android:textStyle="normal|bold|italic"
+        android:textAllCaps="true"/>
+
+    <Button
+        android:text="Play!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:layout_marginBottom="84dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
 
     <ImageView
         android:layout_width="150dp"
@@ -28,24 +53,6 @@
         android:id="@+id/imageView"
         android:layout_above="@+id/textHighScore"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"/>
-
-    <Button
-        android:text="Play!"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:id="@+id/button"
-        android:layout_below="@+id/textHighScore"
-        android:layout_centerHorizontal="true"/>
-
-    <TextView
-        android:text="High Score: 999"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textHighScore"
-        android:textSize="20sp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_marginBottom="55dp"/>
 
 </RelativeLayout>

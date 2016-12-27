@@ -17,10 +17,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/textScore"/>
+        android:id="@+id/textScore"
+        android:textSize="30sp"/>
 
     <Button
-        android:text="Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textWatchGo"
@@ -28,10 +28,10 @@
         android:layout_marginTop="30dp"
         android:id="@+id/button2"
         android:backgroundTint="@color/colorBlue"
-        android:textColor="@android:color/white"/>
+        android:textColor="@android:color/white"
+        android:textSize="14sp"/>
 
     <Button
-        android:text="Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button2"
@@ -52,7 +52,6 @@
         android:textSize="10sp"/>
 
     <Button
-        android:text="Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -62,7 +61,6 @@
         android:layout_alignStart="@+id/button3"/>
 
     <Button
-        android:text="Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -75,17 +73,19 @@
         android:text="Difficulty: 4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="18dp"
         android:id="@+id/textDifficulty"
+        android:textSize="24sp"
         android:layout_below="@+id/textScore"
-        android:layout_alignStart="@+id/textScore"/>
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:text="Watch/Go"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="22dp"
         android:id="@+id/textWatchGo"
         android:layout_below="@+id/textDifficulty"
-        android:layout_alignStart="@+id/textDifficulty"/>
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"/>
 </RelativeLayout>

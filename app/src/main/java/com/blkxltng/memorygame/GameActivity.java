@@ -10,6 +10,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -54,6 +56,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     int defaultInt = 0;
     public static int highScore;
 
+    //For animation
+    Animation wobble;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +67,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         prefs = getSharedPreferences(dataName, MODE_PRIVATE);
         mEditor = prefs.edit();
         highScore = prefs.getInt(intName, defaultInt);
+
+        wobble = AnimationUtils.loadAnimation(this, R.anim.wobble);
 
 //        AudioAttributes audioAttributes = new AudioAttributes.Builder()
 //                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
@@ -112,30 +119,34 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 super.handleMessage(msg);
 
                 if(playSequence) {
-                    button1.setVisibility(View.VISIBLE);
-                    button2.setVisibility(View.VISIBLE);
-                    button3.setVisibility(View.VISIBLE);
-                    button4.setVisibility(View.VISIBLE);
+//                    button1.setVisibility(View.VISIBLE);
+//                    button2.setVisibility(View.VISIBLE);
+//                    button3.setVisibility(View.VISIBLE);
+//                    button4.setVisibility(View.VISIBLE);
 
                     switch (sequenceToCopy[elementToPlay]) {
                         case 1:
-                            button1.setVisibility(View.INVISIBLE); //hide button
+//                            button1.setVisibility(View.INVISIBLE); //hide button
 //                            button1.setBackgroundColor(getColor(R.color.colorAccent));
+                            button1.startAnimation(wobble);
                             soundPool.play(sample1, 1, 1, 0, 0, 1); //play sound
                             break;
 
                         case 2:
-                            button2.setVisibility(View.INVISIBLE); //hide button
+//                            button2.setVisibility(View.INVISIBLE); //hide button
+                            button2.startAnimation(wobble);
                             soundPool.play(sample2, 1, 1, 0, 0, 1); //play sound
                             break;
 
                         case 3:
-                            button3.setVisibility(View.INVISIBLE); //hide button
+//                            button3.setVisibility(View.INVISIBLE); //hide button
+                            button3.startAnimation(wobble);
                             soundPool.play(sample3, 1, 1, 0, 0, 1); //play sound
                             break;
 
                         case 4:
-                            button4.setVisibility(View.INVISIBLE); //hide button
+//                            button4.setVisibility(View.INVISIBLE); //hide button
+                            button4.startAnimation(wobble);
                             soundPool.play(sample4, 1, 1, 0, 0, 1); //play sound
                             break;
                     }
@@ -212,10 +223,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     public void sequenceFinished() {
         playSequence = false;
-        button1.setVisibility(View.VISIBLE);
-        button2.setVisibility(View.VISIBLE);
-        button3.setVisibility(View.VISIBLE);
-        button4.setVisibility(View.VISIBLE);
+//        button1.setVisibility(View.VISIBLE);
+//        button2.setVisibility(View.VISIBLE);
+//        button3.setVisibility(View.VISIBLE);
+//        button4.setVisibility(View.VISIBLE);
         textWatchGo.setText("GO!");
         isResponding = true;
     }
