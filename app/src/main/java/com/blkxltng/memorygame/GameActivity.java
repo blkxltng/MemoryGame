@@ -1,5 +1,6 @@
 package com.blkxltng.memorygame;
 
+import android.content.SharedPreferences;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.media.AudioManager;
@@ -11,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.Random;
@@ -44,10 +46,22 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     int playerScore;
     boolean isResponding;
 
+    //For HighScore
+    SharedPreferences prefs;
+    SharedPreferences.Editor mEditor;
+    String dataName = "MyData";
+    String intName = "MyInt";
+    int defaultInt = 0;
+    public static int highScore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        prefs = getSharedPreferences(dataName, MODE_PRIVATE);
+        mEditor = prefs.edit();
+        highScore = prefs.getInt(intName, defaultInt);
 
 //        AudioAttributes audioAttributes = new AudioAttributes.Builder()
 //                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
@@ -144,6 +158,37 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
+        if(!playSequence) {
+
+            switch(view.getId()) {
+                case R.id.button2:
+                    soundPool.play(sample1, 1, 1, 0, 0, 1);
+                    checkElement(1);
+                    break;
+
+                case R.id.button3:
+                    soundPool.play(sample2, 1, 1, 0, 0, 1);
+                    checkElement(2);
+                    break;
+
+                case R.id.button4:
+                    soundPool.play(sample3, 1, 1, 0, 0, 1);
+                    checkElement(3);
+                    break;
+
+                case R.id.button5:
+                    soundPool.play(sample4, 1, 1, 0, 0, 1);
+                    checkElement(4);
+                    break;
+
+                case R.id.buttonReplay:
+                    difficultyLevel = 3;
+                    playerScore = 0;
+                    textScore.setText("Score: " + playerScore);
+                    playASequence();
+                    break;
+            }
+        }
     }
 
     public void createSequence () {
@@ -173,5 +218,32 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         button4.setVisibility(View.VISIBLE);
         textWatchGo.setText("GO!");
         isResponding = true;
+    }
+
+    public void checkElement(int thisElement) {
+
+        if(isResponding) {
+            playerResponses++;
+            if(sequenceToCopy[playerResponses-1] == thisElement) { //Correct input
+                playerScore += ((thisElement + 1) * 2);
+                textScore.setText("Score: " + playerScore);
+                if(playerResponses == difficultyLevel) { //Whole sequence correct
+                    isResponding = false;
+                    difficultyLevel++;
+                    playASequence();
+                }
+            } else { //Wrong input
+                textWatchGo.setText("WRONG!");
+                isResponding = false;
+
+                //For HighScore
+                if(playerScore > highScore) {
+                    highScore = playerScore;
+                    mEditor.putInt(intName, highScore);
+                    mEditor.commit();
+                    Toast.makeText(getApplicationContext(), "New HighScore!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
     }
 }

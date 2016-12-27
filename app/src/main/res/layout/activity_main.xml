@@ -21,21 +21,12 @@
         android:id="@+id/textView"
         android:textSize="20sp"/>
 
-    <TextView
-        android:text="High Score: 999"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/textView2"
-        android:textSize="20sp"/>
-
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
         app:srcCompat="@mipmap/ic_launcher"
         android:id="@+id/imageView"
-        android:layout_above="@+id/textView2"
+        android:layout_above="@+id/textHighScore"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"/>
 
@@ -45,7 +36,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
         android:id="@+id/button"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/textHighScore"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:text="High Score: 999"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textHighScore"
+        android:textSize="20sp"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
